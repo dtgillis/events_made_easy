@@ -422,7 +422,7 @@ function eme_replace_formfields_placeholders ($event, $readonly, $bookedSeats, $
       } elseif (preg_match('/#_COMMENT$/', $result)) {
          $replacement = "<textarea name='bookerComment'>$bookerComment</textarea>";
       } elseif (preg_match('/#_CAPTCHA$/', $result) && get_option('eme_captcha_for_booking')) {
-         $replacement = "<img src='".EME_PLUGIN_URL."captcha.php'><br><input type='text' name='captcha_check' />";
+         $replacement = "<img class=\"rsvp_cap\" src='".EME_PLUGIN_URL."captcha.php'><br><input class=\"cat_in\" type='text' name='captcha_check' />";
       } elseif (preg_match('/#_FIELDNAME(.+)/', $result, $matches)) {
          $field_id = intval($matches[1]);
          $formfield = eme_get_formfield_byid($field_id);

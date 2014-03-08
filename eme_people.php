@@ -249,8 +249,9 @@ function eme_printable_booking_report($event_id) {
       </head>
       <body id="printable">
          <div id="container">
-         <h1>Bookings for <?php echo eme_trans_sanitize_html($event['event_name']);?></h1> 
-         <p><?php echo eme_localised_date($event['event_start_date']); ?></p>
+         <h1>Bookings for <?php echo eme_trans_sanitize_html($event['event_name']); ?></h1> 
+         <p><?php echo "Date: ".eme_localised_date($event['event_start_date']); ?></p>
+         <p><?php echo "Time: ".eme_localised_time($event['event_start_time'])?></p>
          <p><?php if ($event['location_id']) echo eme_replace_placeholders("#_LOCATIONNAME, #_ADDRESS, #_TOWN", $event); ?></p>
          <?php if ($event['price']) ?>
             <p><?php _e ( 'Price: ','eme' ); echo eme_replace_placeholders("#_CURRENCY #_PRICE", $event)?></p>
@@ -262,7 +263,8 @@ function eme_printable_booking_report($event_id) {
                <th scope='col' class='eme_print_phone'><?php _e('Phone number', 'eme')?></th> 
                <th scope='col' class='eme_print_seats'><?php if ($is_multiprice) _e('Seats (Multiprice)', 'eme'); else _e('Seats', 'eme'); ?></th>
                <th scope='col' class='eme_print_paid'><?php _e('Paid', 'eme')?></th>
-               <th scope='col' class='eme_print_comment'><?php _e('Comment', 'eme')?></th> 
+               <th scope='col' class='eme_print_comment'>Cost</th>
+               
             <?php
             foreach($answer_columns as $col) {
                $class="eme_print_formfield".$formfield[$col['field_name']];
@@ -294,7 +296,7 @@ function eme_printable_booking_report($event_id) {
                ?>
                </td>
                <td class='eme_print_paid'><?php if ($booking['booking_payed']) _e('Yes'); else _e('No'); ?></td>
-               <td class='eme_print_comment'><?=$booking['booking_comment'] ?></td> 
+               <td class='eme_print_comment'> $<?php echo $booking['booking_seats'] * eme_replace_placeholders("#_PRICE", $event)?> </td> 
                <?php
                   $answers = eme_get_answers($booking['booking_id']);
                   foreach($answer_columns as $col) {

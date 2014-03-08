@@ -10,12 +10,19 @@ table#eme-bookings-table tfoot th {
 }    
 
 table.eme-rsvp-form  {
-	width: 80%;
+	margin-left:auto;
+	margin-right:auto;
+	width: 50%;
 }  
 table.eme-rsvp-form th { 
-	text-align: right;
+	
+	text-align: center;
 	width: 35%;
+	background-color: rgba(157, 182, 104, 0.5);
 }
+	
+
+
 
 table.eme-rsvp-form td { 
 	padding-left: 1em;
@@ -181,6 +188,7 @@ table.fullcalendar td {
 	border:1px solid #000;
 	text-align:left;
 	vertical-align:top;
+	
 }
 table.fullcalendar a.prev-month {
 	float:left;
@@ -207,7 +215,9 @@ table.fullcalendar tbody td {
 	overflow:hidden;
 }
 table.fullcalendar ul {
-	margin:7px 0 0 5px;
+	/*margin:7px 0 0 5px;*/
+	width:6em;
+	list-style-type: none;
 }
 table.fullcalendar ul li {
 	margin:7px 0 0 0;
@@ -243,3 +253,26 @@ table.fullcalendar td.eventless-today, table.fullcalendar td.eventful-today {
 #honeypot_check { display: none; }
 /* for the datepicker at the bottom of the edit/new event page, render it invisible */
 #ui-datepicker-div { display: none; }
+div.eme-required-field{display:none;}
+
+ul.contact_list_rsvp{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	list-style: none;
+	text-align: center;
+}
+img.rsvp_cap{
+	width:75%;
+	margin:10px;
+}
+input.cat_in{
+	width:72%;
+	margin:10px;
+}
+div.center_button{
+	text-align:center;
+}
+h2.center_event_text{
+	text-align:center;
+}
