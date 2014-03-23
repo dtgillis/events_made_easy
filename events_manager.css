@@ -30,6 +30,7 @@ table.eme-rsvp-form td {
 }      
 
 div.eme-rsvp-message {     
+	text-align:center;
 	margin-bottom: 1em;
 	background-color: #FDDD73;
 	padding: 5px;
